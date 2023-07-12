@@ -1,0 +1,294 @@
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  background-image: url("./bg.png");
+  background-size: cover;
+
+  font-family: sans-serif;  
+}
+
+input {
+  padding: 4px;
+  border: 1px solid #dcdc01;
+}
+
+label {
+  color: #6b6b6b;
+}
+
+.main-content {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.main-content h1 {
+  margin: 0px;
+}
+
+.main-content h4 {
+  margin: 0px;
+}
+
+.area-of-interest {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.accept-terms {
+  margin-top: 10px;
+}
+
+.card-register {
+  padding: 20px;
+  padding-right: 35%;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  width: 30%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.wrappper-inputs {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+  height: 100%;
+  
+  padding-left: 20px;
+}
+
+.checkbox {
+  display: flex;
+}
+
+.line {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.wrapper-part-of {
+  display: flex;
+  gap: 20px;
+}
+
+.to-cancel-button-top {
+  background: transparent;
+  border-color: transparent;
+}
+
+.to-cancel-button-top:hover {
+  color: #dcdc01;
+  cursor: pointer;
+}
+
+.to-cancel-button-footer {
+  background: transparent;
+  border-color: transparent;
+}
+
+.to-cancel-button-footer:hover {
+  color: #dcdc01;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h1 {
+  color: #dcdc01;
+}
+
+.register-button {
+  background: #dcdc01;
+  border: 2px solid #dcdc01;
+  padding: 7px;
+  padding-left: 46px;
+  padding-right: 46px;
+}
+
+.register-button:hover {
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper-input {
+  gap: 10px;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  background: #dcdc01;
+}
+
+.info-p {
+  width: 48%;
+}
+
+.password-container{
+  position: relative;
+}
+.password-container input[type="password"],
+.password-container input[type="text"]{
+  width: 100%;
+  box-sizing: border-box;
+}
+.fa-eye{
+  position: absolute;
+  top: 60%;
+  right: 4%;
+  cursor: pointer;
+  color: lightgray;
+}
+
+.wrapper-interest {
+  display: flex;
+  gap: 50px;
+}
+
+.wrapper-interest-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.wrapper-interest h4 {
+  color: #6b6b6b;
+}
+
+.wrapper-pdf {
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+
+.pdf-icon {
+  width: 20%;
+  height: 55%;
+}
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.open {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.modal-bg {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.404);
+  width: 100%;
+  height: 100%;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  position: relative;
+  padding: 30px;
+
+  max-height: 50%;
+  
+  width: 60%;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.modal-container img {
+  width: 80%;
+}
+
+.wrapper-pdf a:hover {
+  cursor: pointer;
+  color: #dcdc01;
+}
+
+
+.modal-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  outline: none;
+  appearance: none;
+  color: black;
+  background: none;
+  border: 0px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.accept {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #dcdc01;
+  color: black;
+  border: 2px solid#dcdc01;
+}
+
+.accept:disabled {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #caca27ec;
+  color: black;
+  border: 2px solid #caca27ec;
+}
+
+.accept:hover:disabled {
+  cursor: not-allowed;
+}
+
+.accept:hover {
+  cursor: pointer;
+}

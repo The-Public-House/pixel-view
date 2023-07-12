@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Brasil Agriland</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <script type="module" src="../scripts/register.js"></script>
+    <div class="main-content">
+      
+      <div class="card-register">
+        <div class="wrappper-inputs">
+
+          <div class="header">
+            <h1>Cadastro</h1>
+    
+            <button
+              id="cancel-button"
+              class="to-cancel-button-top"
+            >
+              Voltar
+            </button>
+          </div>
+  
+          <div class="divider"></div>
+  
+          <div class="line">
+            <div class="wrapper-input">
+              <label for="name">Nome</label>
+              <input id="name" />
+            </div>
+    
+            <div class="wrapper-input">
+              <label for="lastName">Sobrenome</label>
+              <input id="lastName" />
+            </div>
+          </div>
+  
+          <div class="line">
+            <div class="wrapper-input">
+              <label for="phone">Telefone</label>
+              <input maxlength="11" id="phone" oninput="phoneMask(this)"/>
+            </div>
+              
+            <div class="wrapper-input">
+              <label for="email">E-mail</label>
+              <input id="email" type="email" />
+            </div>
+          </div>
+  
+          <div class="line">
+            <div class="wrapper-input password-container">
+              <label for="password">Senha(Cadastro)</label>
+              <input type="password" id="password" />
+              <i class="far fa-eye" id="togglePassword"></i>
+  
+            </div>
+          
+            <div class="wrapper-input password-container">
+              <label for="confirmPassword">Confirme sua senha</label>
+              <input type="password" id="confirmPassword" />
+              <i class="far fa-eye" id="toggleConfirmPassword" style="margin-left: -30px; cursor: pointer;"></i>
+  
+            </div>
+          </div>
+        
+          <div class="line">
+            <div class="wrapper-input">
+              <label for="cpf">CPF</label>
+              <input maxlength="11" id="cpf" oninput="cpfMask(this)"/>
+            </div>
+  
+            <p class="info-p">Mínimo de 8 caracteres, incluíndo números, maiúsculas e símbolos.</p>
+          </div>
+  
+          <div class="divider"></div>
+  
+          <div class="wrapper-interest">
+            <h4 style="font-weight: 600;">ÁREA DE INTERESSE</h4>
+  
+            <div class="wrapper-interest-actions">
+              <div class="checkbox">
+                <input id="allChecked" type="checkbox" />
+                <label for="allChecked">Todos</label>
+              </div>
+      
+              <div class="checkbox">
+                <input id="allUnChecked" type="checkbox" />
+                <label for="allUnChecked">Nenhuma</label>
+              </div>
+            </div>
+          </div>
+  
+    
+          <div class="area-of-interest">
+            <div class="column">
+              <div class="checkbox">
+                <input id="cotton" type="checkbox" />
+                <label for="cotton">Algodão</label>
+              </div>
+              
+              <div class="checkbox">
+                <input id="sugarCane" type="checkbox" />
+                <label for="sugarCane">Cana de açucar</label>
+              </div>
+      
+              <div class="checkbox">
+                <input id="soy" type="checkbox" />
+                <label for="soy">Soja</label>
+              </div>
+    
+              <div class="checkbox">
+                <input id="games" type="checkbox" />
+                <label for="games">Games</label>
+              </div>
+            </div>
+  
+            <div class="column">
+              <div class="checkbox">
+                <input id="birds" type="checkbox" />
+                <label for="birds">Aves</label>
+              </div>
+      
+              <div class="checkbox">
+                <input id="cocoa" type="checkbox" />
+                <label for="cocoa">Cacau</label>
+              </div>
+      
+              <div class="checkbox">
+                <input id="swine" type="checkbox" />
+                <label for="swine">Suínos</label>
+              </div>
+    
+              <div class="checkbox">
+                <input id="consumer" type="checkbox" />
+                <label for="consumer">Consumo</label>
+              </div>
+            </div>
+    
+            <div class="column">
+              <div class="checkbox">
+                <input id="bovine" type="checkbox" />
+                <label for="bovine">Bovina</label>
+              </div>
+      
+              <div class="checkbox">
+                <input id="milk" type="checkbox" />
+                <label for="milk">Leite e Derivados</label>
+              </div>
+    
+              <div class="checkbox">
+                <input id="events" type="checkbox" />
+                <label for="events">Eventos</label>
+              </div>
+    
+              <div class="checkbox">
+                <input id="others" type="checkbox" />
+                <label for="others">Outros</label>
+              </div>
+            </div>
+  
+            <div class="column">
+              <div class="checkbox">
+                <input id="coffee" type="checkbox" />
+                <label for="coffee">Café</label>
+              </div>
+      
+              <div class="checkbox">
+                <input id="fish" type="checkbox" />
+                <label for="fish">Pescado</label>
+              </div>
+    
+              <div class="checkbox">
+                <input id="meets" type="checkbox" />
+                <label for="meets">Reuniões</label>
+              </div>
+            </div>
+          </div>
+  
+          <div class="divider"></div>
+  
+          <div class="wrapper-part-of">
+            <div class="checkbox">
+              <input type="checkbox" id="noPartOf" />
+              <label for="noPartOf" style="font-weight: 600;">SOU CONSUMIDOR</label>
+            </div>
+            
+            <div class="checkbox">
+              <input type="checkbox" id="partOf" />
+              <label for="partOf" style="font-weight: 600;">FAÇO PARTE DO AGRO</label>
+            </div>
+          </div>
+  
+          <div class="line">
+            <div class="wrapper-input">
+              <label for="corp">Empresa</label>
+              <input disabled type="text" id="corp">
+            </div>
+  
+            <div class="wrapper-input">
+              <label for="corpEmail">E-mail Coorporativo</label>
+              <input disabled id="corpEmail" />
+            </div>
+          </div>
+  
+          <div class="line">
+            <div class="wrapper-input">
+              <label for="role">Cargo</label>
+              <input disabled id="role" />
+            </div>
+    
+            <div class="wrapper-input">
+              <label for="area">Área de Atuação</label>
+              <input disabled id="area" />
+            </div>
+          </div>
+  
+          <div class="wrapper-input">
+            <label for="chain">Cadeia produtiva</label>
+            <input disabled id="chain" />
+          </div>
+  
+          <div class="divider"></div>
+  
+          <div class="line">
+            <div class="wrapper-pdf">
+              <img src="./pdf.png" class="pdf-icon" alt="pdf-icon">
+              
+              <a data-modal="modal-one">
+                <strong>
+                  TERMOS DE USO E POLÍTICA DE PRIVACIDADE
+                </strong>
+              </a>
+            </div>
+  
+            <div class="accept-terms">
+              <input disabled type="checkbox" id="acceptTerms" />
+              <label
+                for="acceptTerms"
+              >
+                ACEITO OS TERMOS DE USO E POLÍTICA DE PRIVACIDADE
+              </label>
+            </div>
+          </div>
+    
+  
+          <div class="divider"></div>
+  
+          <div class="footer">
+            <button
+              id="register-button"
+              class="register-button"
+            >
+              Enviar
+            </button>
+      
+            <button
+              id="cancel-button-footer"
+              class="to-cancel-button-footer"
+            >
+              Já tem conta? <strong>Acessar</strong>
+            </button>
+          </div>
+          <div id="alert"></div>
+      </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-one">
+      <div class="modal-bg modal-exit"></div>
+      <div class="modal-container">
+        <button class="modal-close modal-exit">X</button>
+        <div id="images" class="images">
+          <img src="./terms/T_UserTerms_1.PNG" alt="terms">
+          <img src="./terms/T_UserTerms_2.PNG" alt="terms">
+          <img src="./terms/T_UserTerms_3.PNG" alt="terms">
+          <img src="./terms/T_UserTerms_4.PNG" alt="terms">
+          <img src="./terms/T_UserTerms_5.PNG" alt="terms">
+          <img src="./terms/T_UserTerms_6.PNG" alt="terms">
+          <img src="./terms/T_UserTerms_7.PNG" alt="terms">
+          <img src="./terms/T_UserTerms_8.PNG" alt="terms">
+          <img src="./terms/T_UserTerms_9.PNG" alt="terms">
+          <img src="./terms/T_UserTerms_10.PNG" alt="terms">
+        </div>
+
+        <button disabled id="accept" class="accept">Aceito os termos.</button>
+      </div>
+    </div>
+
+    <script>
+      function phoneMask (input) {
+        var numero = input.value.replace(/\D/g, '');
+
+        numero = numero.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+
+        input.value = numero;
+      };
+
+      function cpfMask (input) {
+        var cpf = input.value.replace(/\D/g, '');
+
+        cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+
+        input.value = cpf;
+      };
+    </script>
+  </body>
+</html>
+
+  

@@ -1,0 +1,129 @@
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px !important;
+  background-image: url("./bg.png");
+  background-size: cover;
+}
+
+.root {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  font-family: sans-serif;  
+}
+
+.card-login {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  width: 20%;
+
+  padding-right: 25%;
+}
+
+#playerUI {
+  width: 100%;
+  height: 100%;
+}
+
+.email-input {
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  margin-bottom: 8px;
+}
+
+.email-input input {
+  border: 2px solid #dcdc01;
+  padding: 8px;
+}
+
+.email-input:focus-visible {
+  border-color: #dcdc01;
+}
+
+.password-input {
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  margin-bottom: 8px;
+}
+
+.password-input input {
+  border: 2px solid #dcdc01;
+  padding: 8px;
+}
+
+.password-input:focus-visible {
+  border-color: #dcdc01;
+}
+
+.button-signin {
+  padding: 8px 40px 8px 40px;
+  margin-bottom: 8px;
+  background: #dcdc01;
+  border: 2px solid #dcdc01;
+}
+
+.button-signin:hover {
+  cursor: pointer;
+  background: #dcdc0159;
+}
+
+.button-register {
+  background: transparent;
+  border-color: transparent;
+}
+
+.button-register:hover {
+  cursor: pointer;
+  color: #dcdc01;
+}
+
+.button-forget {
+  background: transparent;
+  border-color: transparent;
+}
+
+.button-forget:hover {
+  cursor: pointer;
+  color: #dcdc01;
+}
+
+.divider {
+  width: 100%;
+  background: #000;
+  height: 2px;
+
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.footer-login {
+  display: flex;
+  gap: 7px;
+}
+
+.divider-footer {
+  height: 20px;
+  width: 2px;
+  background: #000;
+}
