@@ -21,7 +21,9 @@ export const createButton = (className, onClick, buttonText) => {
   const button = document.createElement("button");
   button.appendChild(document.createTextNode(buttonText));
 
-  button.class = className;
+  button.className = className;
+
+  button.id = className;
 
   button.onclick = onClick;
 

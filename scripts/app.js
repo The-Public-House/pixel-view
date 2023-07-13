@@ -118,7 +118,10 @@ const render = () => {
             // root.style.display = "none";
             // playerUI.style.visibility = "visible";
           } else if (!data.hasVerified && data.success) {
-            window.location.replace("verify.html");
+            let url = new URL("verify.html", window.location.href);
+            url.searchParams.set("email", email);
+            console.log(url);
+            window.location.replace(url.href);
           } else if (!data.success)  {
             submitContainer.removeChild(animationLoading);
             submitContainer.appendChild(bttnSubmit);
