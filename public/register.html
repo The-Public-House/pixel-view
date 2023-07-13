@@ -210,18 +210,49 @@
           <div class="line">
             <div class="wrapper-input">
               <label for="role">Cargo</label>
-              <input disabled id="role" />
+              <select disabled name="role" id="role">
+                <option value="Presidente">Presidente</option>
+                <option value="Vice-presidente">Vice-presidente</option>
+                <option value="Diretor">Diretor</option>
+                <option value="Superintendente">Superintendente</option>
+                <option value="Gerente">Gerente</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Analista">Analista</option>
+                <option value="Trainee">Trainee</option>
+                <option value="Estagiário">Estagiário</option>
+                <option value="Outro">Outro</option>
+              </select>
             </div>
     
             <div class="wrapper-input">
               <label for="area">Área de Atuação</label>
-              <input disabled id="area" />
+              <select disabled name="area" id="area">
+                <option value="Equipamentos">Equipamentos</option>
+                <option value="Insumos">Insumos</option>
+                <option value="Produção rural">Produção rural</option>
+                <option value="Indústria">Indústria</option>
+                <option value="Distribuição">Distribuição</option>
+                <option value="Serviços">Serviços</option>
+                <option value="Outro(s)">Outro(s)</option>
+              </select>
             </div>
           </div>
   
           <div class="wrapper-input">
             <label for="chain">Cadeia produtiva</label>
-            <input disabled id="chain" />
+            <select disabled name="chain" id="chain">
+              <option value="Cadeia Bovina">Cadeia Bovina</option>
+              <option value="Cadeia Suína">Cadeia Suína</option>
+              <option value="Cadeia de Aves">Cadeia de Aves</option>
+              <option value="Cadeia de Pescados">Cadeia de Pescados</option>
+              <option value="Cadeia de Leite e Derivados">Cadeia de Leite e Derivados</option>
+              <option value="Cadeia de Soja">Cadeia de Soja</option>
+              <option value="Cadeia do Algodão">Cadeia do Algodão</option>
+              <option value="Cadeia do Café">Cadeia do Café</option>
+              <option value="Cadeia do Cacau">Cadeia do Cacau</option>
+              <option value="Cadeia Cana de Açúcar">Cadeia Cana de Açúcar</option>
+              <option value="Outro">Outro</option>
+            </select>
           </div>
   
           <div class="divider"></div>
@@ -254,9 +285,17 @@
             <button
               id="register-button"
               class="register-button"
+              style="display: block;"
             >
               Enviar
             </button>
+            <div
+              id="loading"
+              style="display: none;"
+              class="lds-ellipsis"
+            >
+              <div></div><div></div><div></div><div></div>
+            </div>
       
             <button
               id="cancel-button-footer"

@@ -36,7 +36,7 @@ export const createTitle = (text) => {
   return title;
 };
 
-export const baseUrl = "https://agriland11971.c42.integrator.host/services"
+export const baseUrl = "https://admin-brasilagriland.com.br/services";
 
 export const postHttp = async (endPoint, onSuccess, onFailed, onError, data) => {
   var request = new XMLHttpRequest(); 
