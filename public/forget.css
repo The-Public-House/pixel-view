@@ -9,13 +9,92 @@ body {
   margin: 0px !important;
   background-image: url("./bg.png");;
   background-size: cover;
+
+  font-family: sans-serif;
 }
 
-.root {
+#root {
   width: 100%;
   height: 100%;
 
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.input-values {
+  padding: 4px;
+  border: 1px solid #dcdc01;
+}
+
+.forget-container h2 {
+  color: #dcdc01;
+}
+
+.forget-container p {
+  color: #6b6b6b;
+}
+
+.forget-container {
+  width: 20%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  background: #fff;
+
+  margin-right: 29%;
+}
+
+.cancel-button {
+  background: transparent;
+  border: 2px solid transparent;
+}
+
+.submit-button {
+  background: #dcdc01;
+  border: 2px solid #dcdc01;
+  padding: 7px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 40%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  color: #dcdc01;
+  cursor: pointer;
+}
+
+.divider {
+  width: 100%;
+  height: 2px;
+  background: #dcdc01;
+}
+
+.wrapper-input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  margin-bottom: 8px;
+}
+
+.wrapper-input label {
+  color: #6b6b6b;
+}
+
+.code-and-button {
+  display: flex;
+}
+
+.code-and-button .submit-button {
+  height: 29px;
+  margin: 0px;
 }

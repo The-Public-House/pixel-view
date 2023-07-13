@@ -4,12 +4,16 @@ export const createInput = (id, className, labelText, type) => {
   
   input.id = id;
   input.type = type;
-   
+
+  input.className = className;
+
   label.for = id;
   
   label.appendChild(document.createTextNode(labelText));
 
   const div = document.createElement("div");
+
+  div.className = 'wrapper-input';
     
   div.appendChild(label);
   div.appendChild(input);
