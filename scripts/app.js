@@ -126,7 +126,7 @@ const render = () => {
             submitContainer.removeChild(animationLoading);
             submitContainer.appendChild(bttnSubmit);
 
-            alertContainer.innerHTML = `<p>${data.message}</p>`;
+            alertContainer.innerHTML = `<p>Email ou senha estão incorretos</p>`;
           }
         } else {
           console.log("aqui");

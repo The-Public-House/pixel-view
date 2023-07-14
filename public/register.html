@@ -32,11 +32,13 @@
             <div class="wrapper-input">
               <label for="name">Nome</label>
               <input id="name" />
+              <div class="message-container" id="message-name"></div>
             </div>
     
             <div class="wrapper-input">
               <label for="lastName">Sobrenome</label>
               <input id="lastName" />
+              <div class="message-container" id="message-lastName"></div>
             </div>
           </div>
   
@@ -44,11 +46,13 @@
             <div class="wrapper-input">
               <label for="phone">Telefone</label>
               <input maxlength="11" id="phone" oninput="phoneMask(this)"/>
+              <div class="message-container" id="message-phone"></div>
             </div>
               
             <div class="wrapper-input">
               <label for="email">E-mail</label>
               <input id="email" type="email" />
+              <div class="message-container" id="message-email"></div>
             </div>
           </div>
   
@@ -56,15 +60,15 @@
             <div class="wrapper-input password-container">
               <label for="password">Senha(Cadastro)</label>
               <input type="password" id="password" />
-              <i class="far fa-eye" id="togglePassword"></i>
-  
+              <i class="far fa-eye fa-eye-slash" id="togglePassword"></i>
+              <div class="message-container" id="message-password"></div>
             </div>
           
             <div class="wrapper-input password-container">
               <label for="confirmPassword">Confirme sua senha</label>
               <input type="password" id="confirmPassword" />
-              <i class="far fa-eye" id="toggleConfirmPassword" style="margin-left: -30px; cursor: pointer;"></i>
-  
+              <i class="far fa-eye fa-eye-slash" id="toggleConfirmPassword" style="margin-left: -30px; cursor: pointer;"></i>
+              <div class="message-container" id="message-confirmPassword"></div>
             </div>
           </div>
         
@@ -72,9 +76,10 @@
             <div class="wrapper-input">
               <label for="cpf">CPF</label>
               <input maxlength="11" id="cpf" oninput="cpfMask(this)"/>
+              <div class="message-container" id="message-cpf"></div>
             </div>
   
-            <p class="info-p">Mínimo de 8 caracteres, incluíndo números, maiúsculas e símbolos.</p>
+            <p class="info-p" id="info-password">Mínimo de 8 caracteres, incluíndo números, maiúsculas e símbolos.</p>
           </div>
   
           <div class="divider"></div>
@@ -95,7 +100,6 @@
             </div>
           </div>
   
-    
           <div class="area-of-interest">
             <div class="column">
               <div class="checkbox">
@@ -180,6 +184,8 @@
               </div>
             </div>
           </div>
+          
+          <div class="message-container" id="message-areaOfInterest"></div>
   
           <div class="divider"></div>
   
@@ -199,18 +205,22 @@
             <div class="wrapper-input">
               <label for="corp">Empresa</label>
               <input disabled type="text" id="corp">
+              <div class="message-container" id="message-corp"></div>
             </div>
   
             <div class="wrapper-input">
               <label for="corpEmail">E-mail Coorporativo</label>
               <input disabled id="corpEmail" />
+              <div class="message-container" id="message-corpEmail"></div>
             </div>
           </div>
   
           <div class="line">
             <div class="wrapper-input">
               <label for="role">Cargo</label>
+
               <select disabled name="role" id="role">
+                <option value="">Selecione um cargo.</option>
                 <option value="Presidente">Presidente</option>
                 <option value="Vice-presidente">Vice-presidente</option>
                 <option value="Diretor">Diretor</option>
@@ -222,11 +232,14 @@
                 <option value="Estagiário">Estagiário</option>
                 <option value="Outro">Outro</option>
               </select>
+              <div class="message-container" id="message-role"></div>
             </div>
     
             <div class="wrapper-input">
               <label for="area">Área de Atuação</label>
+
               <select disabled name="area" id="area">
+                <option value="">Selecione uma área de atuação.</option>
                 <option value="Equipamentos">Equipamentos</option>
                 <option value="Insumos">Insumos</option>
                 <option value="Produção rural">Produção rural</option>
@@ -235,12 +248,15 @@
                 <option value="Serviços">Serviços</option>
                 <option value="Outro(s)">Outro(s)</option>
               </select>
+              <div class="message-container" id="message-area"></div>              
             </div>
           </div>
   
           <div class="wrapper-input">
             <label for="chain">Cadeia produtiva</label>
+
             <select disabled name="chain" id="chain">
+              <option value="">Selecione uma cadeia produtiva.</option>
               <option value="Cadeia Bovina">Cadeia Bovina</option>
               <option value="Cadeia Suína">Cadeia Suína</option>
               <option value="Cadeia de Aves">Cadeia de Aves</option>
@@ -253,6 +269,8 @@
               <option value="Cadeia Cana de Açúcar">Cadeia Cana de Açúcar</option>
               <option value="Outro">Outro</option>
             </select>
+
+            <div class="message-container" id="message-chain"></div>
           </div>
   
           <div class="divider"></div>
@@ -275,6 +293,7 @@
               >
                 ACEITO OS TERMOS DE USO E POLÍTICA DE PRIVACIDADE
               </label>
+              <div class="message-container" id="message-acceptTerms"></div>
             </div>
           </div>
     
