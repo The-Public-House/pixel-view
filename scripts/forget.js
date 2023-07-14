@@ -9,12 +9,41 @@ let step = "verifyEmail";
 let email = "";
 let code = "";
 
+const loading = () => {
+  const mother = document.createElement("div");
+  mother.id = "loading";
+  mother.className = "lds-ellipsis";
+
+  const one = document.createElement("div");
+  const two = document.createElement("div");
+  const three = document.createElement("div");
+  const four = document.createElement("div");
+
+  mother.appendChild(one);
+  mother.appendChild(two);
+  mother.appendChild(three);
+  mother.appendChild(four);
+
+  return mother;
+}
+
 const submitNewPassword = async () => {
   const data = {
     email,
     code,
     newPassword: document.getElementById("inputNewPassword").value,
   };
+
+  const alert = document.getElementById('alert');
+  alert.innerHTML = "";
+
+  const buttonCreateNewPassword = createButton("submit-button", submitNewPassword, "ENVIAR");
+  const passwordContainer = document.querySelector(".password-container");
+  const oldBttn = document.querySelector('.password-container .submit-button');
+  const loadingAnimation = loading();
+
+  passwordContainer.removeChild(oldBttn);
+  passwordContainer.appendChild(loadingAnimation);
   
   try {
     var request = new XMLHttpRequest(); 
@@ -27,23 +56,43 @@ const submitNewPassword = async () => {
             
         if (responseData.success) {
           window.location.replace("player.html");
+        } else {
+          passwordContainer.removeChild(loadingAnimation);
+          passwordContainer.appendChild(buttonCreateNewPassword);
+          alert.innerHTML = responseData.message;
         }
       } else {
-        console.error('Erro na requisição. Status:', request.status);
+        passwordContainer.removeChild(loadingAnimation);
+        passwordContainer.appendChild(buttonCreateNewPassword);
+        alert.innerHTML = 'Erro na requisição';
       }
     };
   
     request.onerror = function() {
-      console.error('Erro na requisição.');
+      passwordContainer.removeChild(loadingAnimation);
+      passwordContainer.appendChild(buttonCreateNewPassword);
+      alert.innerHTML = 'Erro na requisição';
     };
   
     request.send(JSON.stringify(data)); 
   } catch (err) {
-    console.log(err);
+    passwordContainer.removeChild(loadingAnimation);
+    passwordContainer.appendChild(buttonCreateNewPassword);
+    alert.innerHTML = err;
   }
 };
 
 const verifyCode = async () => {
+  const loadingAnimation = loading();
+  const bttn = document.getElementById("submit-button")
+  const alert = document.getElementById('alert');
+  const newBttn = createButton("submit-button", verifyCode,"Verificar");
+  alert.innerHTML = "";
+
+  const containerInput = document.getElementById('code-and-button');
+  containerInput.removeChild(document.querySelector('.code-and-button .submit-button'))
+  containerInput.appendChild(loadingAnimation);
+
   const data = {
     email,
     code: document.getElementById("codeInput").value
@@ -61,27 +110,53 @@ const verifyCode = async () => {
         if (responseData.success) {
           step = "newPassword";
           code = data.code;
+          bttn.disabled = false;
           main();
+        } else {
+          containerInput.removeChild(loadingAnimation);
+          containerInput.appendChild(newBttn);
+          alert.innerHTML = responseData.message;
         }
       } else {
-        console.error('Erro na requisição. Status:', request.status);
+        containerInput.removeChild(loadingAnimation);
+        containerInput.appendChild(newBttn);
+        alert.innerHTML = "Erro na requisição";
       }
     };
   
     request.onerror = function() {
-      console.error('Erro na requisição.');
+      alert.innerHTML = "Erro na requisição";
+      containerInput.removeChild(loadingAnimation);
+      containerInput.appendChild(newBttn);
     };
   
     request.send(JSON.stringify(data)); 
   } catch (err) {
-    console.log(err);
+    containerInput.removeChild(loadingAnimation);
+    containerInput.appendChild(newBttn);
+    alert.innerHTML = err;
   }
 };
 
 const verifyEmail = async () => {
+  const alert = document.getElementById('alert');
+  alert.innerHTML = "";
+
   const data = {
     email: document.getElementById("emailInput").value
   };
+
+  const loadingAnimation = loading();
+
+  const bttn = document.createElement('button');
+  bttn.className = "submit-button";
+  bttn.id = "submit-button";
+  bttn.onclick = verifyEmail;
+  bttn.appendChild(document.createTextNode('ENVIAR'));
+
+  const container = document.getElementById("container-bttn");
+  container.removeChild(document.getElementById('submit-button'));
+  container.appendChild(loadingAnimation);
   
   try {
     var request = new XMLHttpRequest(); 
@@ -96,19 +171,31 @@ const verifyEmail = async () => {
           step = "newPassword";
           email = data.email;
           main();
+        } else {
+          container.removeChild(loadingAnimation);
+          container.appendChild(bttn);
+          alert.innerHTML = responseData.message;
         }
       } else {
+        container.removeChild(loadingAnimation);
+        container.appendChild(bttn);
+        alert.innerHTML = responseData.message;
+        
         console.error('Erro na requisição. Status:', request.status);
       }
     };
   
     request.onerror = function() {
-      console.error('Erro na requisição.');
+      container.removeChild(loadingAnimation);
+      container.appendChild(bttn);
+      alert.innerHTML = 'Erro na requisição';
     };
   
     request.send(JSON.stringify(data)); 
   } catch (err) {
-    console.log(err);
+    container.removeChild(loadingAnimation);
+    container.appendChild(bttn);
+    alert.innerHTML = err;
   }
 };
 
@@ -119,6 +206,8 @@ const createDivider = () => {
 }
 
 const main = () => {
+  const alert = document.createElement("div");
+  alert.id = "alert";
   const root = document.getElementById("root");
 
   const dividerTop = createDivider();
@@ -150,11 +239,22 @@ const main = () => {
 
   const codeAndButton = document.createElement('div');
   codeAndButton.className = 'code-and-button';
+  codeAndButton.id = 'code-and-button';
 
   const wrapperCode = document.createElement('div');
   wrapperCode.className = "wrapper-input";
 
-  appendChilds(codeAndButton, [inputCode, buttonVerifyCode]);
+  if (!code) appendChilds(codeAndButton, [inputCode, buttonVerifyCode]);
+  else {
+    const img = document.createElement('img');
+    img.src = './T_Checked.png';
+    img.id = "checked";
+    const containerChecked = document.createElement('div');
+    containerChecked.className = 'container-checked';
+    containerChecked.appendChild(img);
+
+    appendChilds(codeAndButton, [inputCode, containerChecked]);
+  }
 
   appendChilds(wrapperCode, [codeLabel, codeAndButton]);
 
@@ -171,7 +271,11 @@ const main = () => {
   const forgetContainer = document.createElement("div");
   forgetContainer.className = "forget-container";
 
-  if (step === "verifyEmail") appendChilds(forgetContainer, [title, dividerTop, info, inputEmail, buttonVerifyEmail, dividerBottom,cancelButton]);
+  const containerBttn = document.createElement("div");
+  containerBttn.id = "container-bttn";
+  containerBttn.appendChild(buttonVerifyEmail)
+
+  if (step === "verifyEmail") appendChilds(forgetContainer, [title, dividerTop, info, inputEmail, containerBttn, dividerBottom, cancelButton, alert]);
   else if (step === "newPassword") {
     const codeContainer = document.createElement('div');
     codeContainer.className = "code-container";
@@ -181,16 +285,16 @@ const main = () => {
       inputCode.disabled = true;
       buttonVerifyCode.disabled = false;
     }
-    
 
     appendChilds(codeContainer, [wrapperCode]);
 
     const passwordContainer = document.createElement('div');
     passwordContainer.className = "password-container";
+    if (!code) buttonCreateNewPassword.disabled = true;
 
     appendChilds(passwordContainer, [inputNewPassword, inputConfirmNewPassword, buttonCreateNewPassword, ]);
 
-    appendChilds(forgetContainer, [title, dividerTop, codeContainer, passwordContainer, dividerTop,cancelButton]);
+    appendChilds(forgetContainer, [title, dividerTop, codeContainer, passwordContainer, dividerBottom, cancelButton, alert]);
   }
 
   appendChilds(root, [forgetContainer]);
