@@ -18,7 +18,6 @@ const verifyPassword = (password) => {
   return true;
 }
 
-
 const loading = () => {
   const mother = document.createElement("div");
   mother.id = "loading";
