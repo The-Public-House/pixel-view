@@ -9,6 +9,16 @@ let step = "verifyEmail";
 let email = "";
 let code = "";
 
+const verifyPassword = (password) => {
+  if (password.length < 8) return false;
+  if (!/\d/.test(password)) return false;
+  if (!/[A-Z]/.test(password)) return false;
+  if (!/[\W_]/.test(password)) return false;
+
+  return true;
+}
+
+
 const loading = () => {
   const mother = document.createElement("div");
   mother.id = "loading";
@@ -28,6 +38,15 @@ const loading = () => {
 }
 
 const submitNewPassword = async () => {
+  const info = document.getElementById('password-default-info');
+  info.style.color = 'black';
+  
+  const passwordInput = document.getElementById('inputNewPassword');
+  passwordInput.style.borderColor = '#dcdc01';
+
+  const confirmPasswordInput = document.getElementById('inputConfirmNewPassword')
+  confirmPasswordInput.style.borderColor = '#dcdc01';
+  
   const data = {
     email,
     code,
@@ -46,6 +65,9 @@ const submitNewPassword = async () => {
   passwordContainer.appendChild(loadingAnimation);
   
   try {
+    if (!verifyPassword(data.newPassword)) throw new Error('senhaFraca');
+    if (confirmPasswordInput.value !== data.newPassword) throw new Error('noEqual');
+
     var request = new XMLHttpRequest(); 
     request.open('POST', `${baseUrl}/unauth/new-passowrd`, true);
     request.setRequestHeader('Content-Type', 'application/json');
@@ -78,7 +100,15 @@ const submitNewPassword = async () => {
   } catch (err) {
     passwordContainer.removeChild(loadingAnimation);
     passwordContainer.appendChild(buttonCreateNewPassword);
-    alert.innerHTML = err;
+    if (err.message === 'senhaFraca') {
+      passwordInput.style.borderColor = 'red';
+      info.style.color = 'red';
+    }
+    else if (err.message = 'noEqual') {
+      alert.innerHTML = 'As digitadas senhas não coincidem';
+      confirmPasswordInput.style.borderColor = 'red';
+    }
+    else alert.innerHTML = err;
   }
 };
 
@@ -206,6 +236,10 @@ const createDivider = () => {
 }
 
 const main = () => {
+  const passwordDefaultText = document.createElement('p')
+  passwordDefaultText.appendChild(document.createTextNode('Mínimo de 8 caracteres, incluíndo números, maiúsculas e símbolos.'));
+  passwordDefaultText.id = 'password-default-info';
+
   const alert = document.createElement("div");
   alert.id = "alert";
   const root = document.getElementById("root");
@@ -292,7 +326,7 @@ const main = () => {
     passwordContainer.className = "password-container";
     if (!code) buttonCreateNewPassword.disabled = true;
 
-    appendChilds(passwordContainer, [inputNewPassword, inputConfirmNewPassword, buttonCreateNewPassword, ]);
+    appendChilds(passwordContainer, [inputNewPassword, passwordDefaultText,inputConfirmNewPassword, buttonCreateNewPassword, ]);
 
     appendChilds(forgetContainer, [title, dividerTop, codeContainer, passwordContainer, dividerBottom, cancelButton, alert]);
   }

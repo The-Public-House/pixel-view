@@ -33,6 +33,10 @@ body {
   padding-right: 25%;
 }
 
+.footer-login button {
+  font-size: 18px;
+}
+
 #playerUI {
   width: 100%;
   height: 100%;

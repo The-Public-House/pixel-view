@@ -23,7 +23,7 @@ body {
 }
 
 .input-values {
-  padding: 4px;
+  padding: 8px;
   border: 1px solid #dcdc01;
 }
 
@@ -37,19 +37,17 @@ body {
 
 .forget-container {
   width: 20%;
-
   display: flex;
   flex-direction: column;
   gap: 5px;
-
   background: #fff;
-
   margin-right: 29%;
 }
 
 .cancel-button {
   background: transparent;
   border: 2px solid transparent;
+  font-size: 18px;
 }
 
 .submit-button {
@@ -95,7 +93,7 @@ body {
 }
 
 .code-and-button .submit-button {
-  height: 29px;
+  height: 33px;
   margin: 0px;
 }
 
@@ -164,6 +162,7 @@ body {
 .submit-button:disabled {
   background: #dcdc015d;
   border-color: #dcdc015d;
+  color: #00000052;
 }
 
 .submit-button:disabled:hover {
@@ -172,7 +171,7 @@ body {
 
 .container-checked {
   background: greenyellow;
-  height: 25px;
+  height: 33px;
   width: 50px;
 
   display: flex;

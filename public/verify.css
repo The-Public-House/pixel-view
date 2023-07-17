@@ -39,6 +39,7 @@ body {
 
 .wrapper-input {
   display: flex;
+  align-items: center;
 }
 
 .card-verify h1 {
@@ -65,6 +66,7 @@ body {
 .verify-button {
   background: #dcdc01;
   color: #000;
+  height: 35px;
   border: 2px solid #dcdc01;
 }
 
@@ -74,14 +76,15 @@ body {
 }
 
 .submit-button {
+  font-size: 16px;
   background: #dcdc01;
   color: #000;
   border: 2px solid #dcdc01;
   margin-top: 8px;
   margin-bottom: 8px;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 8px;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 .submit-button:hover {
@@ -91,14 +94,16 @@ body {
 
 .submit-button:disabled {
   cursor: not-allowed;
-  background: #6d6d06;
-  border: 2px solid #6d6d06;
+  background: #dcdc0146;
+  border: 1px solid #dcdc0146;
+  color: #00000056;
 }
 
 .cancel-button {
   background: transparent;
   border-color: transparent;
   color: #6b6b6b;
+  font-size: 18px;
 }
 
 .cancel-button:hover {
@@ -179,4 +184,9 @@ body {
 
 .has-verified img {
   height: 17px;
+}
+
+.code-input {
+  padding: 8px;
+  border: 2px solid #dcdc01;
 }
